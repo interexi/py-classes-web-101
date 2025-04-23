@@ -1,0 +1,3 @@
+curl -X POST http://localhost:8080/unsafe/process_payment \
+  -H "Content-Type: application/json" \
+  -d '{"card_number": "4532756279624064", "amount": 100}'

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bitcoin Price Tracker</h1>
+            <h2>Трекер ціни Bitcoin</h2>
+        </header>
+
+        <main>
+            <div class="price-display">
+                <div class="current-price">
+                    <h3>Current Price / Поточна ціна</h3>
+                    <span id="currentPrice">${{ "%.2f"|format(price if price else 0) }}</span>
+                </div>
+                <div class="last-updated">
+                    <p>Last Updated / Останнє оновлення:</p>
+                    <span id="lastUpdated">{{ last_updated }}</span>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="priceChart"></canvas>
+            </div>
+
+            <div class="info-panel">
+                <h3>Price History / Історія цін</h3>
+                <p>Chart shows the last 20 price updates</p>
+                <p>Графік показує останні 20 оновлень ціни</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/tracker.js') }}"></script>
+</body>
+</html> 

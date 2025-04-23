@@ -1,0 +1,96 @@
+/* General styles / Загальні стилі */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header styles / Стилі заголовку */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    margin: 0.5rem 0;
+}
+
+h2 {
+    color: #666;
+    font-size: 1.5rem;
+}
+
+/* Price display styles / Стилі відображення ціни */
+.price-display {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.current-price {
+    margin-bottom: 1rem;
+}
+
+#currentPrice {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.last-updated {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Chart styles / Стилі графіку */
+.chart-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* Info panel styles / Стилі інформаційної панелі */
+.info-panel {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-panel h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.info-panel p {
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+/* Responsive design / Адаптивний дизайн */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    #currentPrice {
+        font-size: 2rem;
+    }
+
+    .price-display {
+        padding: 1rem;
+    }
+} 

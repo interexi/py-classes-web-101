@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  webstore:
+    build: .
+    ports:
+      - "4999:5000"
+    # Limited resources to make it vulnerable to DDoS
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'    # Half CPU core
+          memory: 20M   # 20MB memory limit
+    environment:
+      - PYTHONUNBUFFERED=1
+   #restart: unless-stopped
+
+volumes:
+  postgres_data: 

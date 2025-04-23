@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # Web application service / Сервіс веб-додатку
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4999:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+    volumes:
+      - ./app.py:/app/app.py
+      - ./templates:/app/templates
+      - ./static:/app/static
+    restart: unless-stopped

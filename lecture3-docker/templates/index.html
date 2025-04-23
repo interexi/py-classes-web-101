@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Flask Demo</h1>
+        <h2>Ласкаво просимо до демонстрації Flask</h2>
+        
+        <div class="content">
+            <p>This is a simple Flask application demonstration.</p>
+            <p>Це проста демонстрація Flask додатку.</p>
+            
+            <div class="links">
+                <a href="{{ url_for('hello', name='student') }}" class="button">
+                    Try Personal Greeting
+                    <span class="translation">Спробувати персональне привітання</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

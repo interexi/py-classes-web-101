@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Internet Works - Interactive Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Browser Interface / Інтерфейс браузера -->
+        <div class="browser-window">
+            <div class="browser-toolbar">
+                <div class="browser-buttons">
+                    <span class="button red"></span>
+                    <span class="button yellow"></span>
+                    <span class="button green"></span>
+                </div>
+                <div class="address-bar">
+                    <input type="text" id="urlInput" value="https://example.com" readonly>
+                    <button id="sendRequest">Send Request / Надіслати запит</button>
+                </div>
+            </div>
+            
+            <!-- Network Visualization / Візуалізація мережі -->
+            <div class="network-visualization">
+                <div class="client-side">
+                    <h3>Client / Клієнт</h3>
+                    <div class="computer-icon">🖥️</div>
+                    <div id="requestData" class="data-box">
+                        <h4>Request / Запит</h4>
+                        <pre class="code-block"></pre>
+                    </div>
+                </div>
+                
+                <div class="network-path">
+                    <div class="data-packet" id="packet">📦</div>
+                    <div class="network-line"></div>
+                </div>
+                
+                <div class="server-side">
+                    <h3>Server / Сервер</h3>
+                    <div class="server-icon">🖧</div>
+                    <div id="responseData" class="data-box">
+                        <h4>Response / Відповідь</h4>
+                        <pre class="code-block"></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Response Display / Відображення відповіді -->
+            <div class="response-window">
+                <h3>Browser Display / Відображення браузера</h3>
+                <div id="browserDisplay"></div>
+            </div>
+        </div>
+        
+        <!-- Educational Info / Навчальна інформація -->
+        <div class="info-panel">
+            <h2>How It Works / Як це працює</h2>
+            <div class="steps">
+                <div class="step">
+                    <h4>1. HTTP Request / HTTP Запит</h4>
+                    <p>Browser sends a request to the server</p>
+                    <p>Браузер надсилає запит на сервер</p>
+                </div>
+                <div class="step">
+                    <h4>2. Server Processing / Обробка на сервері</h4>
+                    <p>Server processes the request</p>
+                    <p>Сервер обробляє запит</p>
+                </div>
+                <div class="step">
+                    <h4>3. HTTP Response / HTTP Відповідь</h4>
+                    <p>Server sends back the response</p>
+                    <p>Сервер надсилає відповідь</p>
+                </div>
+                <div class="step">
+                    <h4>4. Browser Rendering / Рендеринг браузера</h4>
+                    <p>Browser displays the content</p>
+                    <p>Браузер відображає вміст</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/animation.js') }}"></script>
+</body>
+</html> 

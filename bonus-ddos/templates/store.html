@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple Web Store</h1>
+            <div class="server-stats">
+                <span>Server Status: </span>
+                <span id="sessionCount" class="stat">Sessions: 0</span>
+                <span id="serverTime" class="stat">Time: --:--:--</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="products-grid">
+                {% for product in products %}
+                <div class="product-card">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">${{ "%.2f"|format(product.price) }}</p>
+                    <p class="stock">In Stock: {{ product.stock }}</p>
+                    <button class="buy-btn" onclick="buyProduct({{ product.id }})">
+                        Buy Now
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Update server stats periodically
+        function updateStats() {
+            fetch('/api/stats')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('sessionCount').textContent = 
+                        `Sessions: ${data.active_sessions}`;
+                    document.getElementById('serverTime').textContent = 
+                        `Time: ${new Date(data.server_time).toLocaleTimeString()}`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Simulate buying products (generates more server load)
+        function buyProduct(id) {
+            fetch('/api/products')
+                .then(response => response.json())
+                .then(data => {
+                    alert('Processing order...');
+                })
+                .catch(error => {
+                    alert('Server error! Try again later.');
+                });
+        }
+
+        // Update stats every second
+        setInterval(updateStats, 1000);
+        updateStats();
+    </script>
+</body>
+</html> 

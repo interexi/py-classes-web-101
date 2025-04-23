@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Greeting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, {{ name }}!</h1>
+        <h2>Привіт, {{ name }}!</h2>
+        
+        <div class="content">
+            <p>This is your personalized greeting page.</p>
+            <p>Це ваша сторінка персонального привітання.</p>
+            
+            <div class="links">
+                <a href="{{ url_for('index') }}" class="button">
+                    Back to Home
+                    <span class="translation">Повернутися на головну</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
